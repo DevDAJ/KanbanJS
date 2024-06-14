@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import './globals.css';
-import NavBar from "@/components/server/NavBar";
+import NavBar from '@/components/server/NavBar';
+import QueryProvider from '@/providers/QueryProvider';
 
 export const metadata: Metadata = {
-  title: "KanbanJS"
+  title: 'Product Listing App with auth',
 };
 
 export default function RootLayout({
@@ -15,7 +16,8 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-slate-600">
         <NavBar />
-        {children}</body>
+        <QueryProvider>{children}</QueryProvider>
+      </body>
     </html>
   );
 }

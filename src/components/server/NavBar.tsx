@@ -13,7 +13,7 @@ const NavBar: React.FC = async () => {
           <Link href="/">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <h1 className="text-gray-300 font-bold">KanbanJS</h1>
+                <h1 className="text-gray-300 font-bold">Product Listing App with auth</h1>
               </div>
             </div>
           </Link>
@@ -22,10 +22,10 @@ const NavBar: React.FC = async () => {
               {session ? (
                 <>
                   <Link
-                    href="/boards"
+                    href="/products"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Boards
+                    Products
                   </Link>
                   <Link
                     href="/profile"
