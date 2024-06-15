@@ -10,7 +10,9 @@ export default function Signin() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const router = useRouter();
   const signup = () => {
-    createUserWithEmailAndPassword(auth, email, password);
+    createUserWithEmailAndPassword(auth, email, password).then(() => {
+      router.push('/login?registered=true');
+    });
   };
   return (
     <>

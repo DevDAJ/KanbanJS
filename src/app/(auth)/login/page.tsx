@@ -1,12 +1,14 @@
 'use client';
 import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 
 export default function Signin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const isFromRegister = searchParams.get('registered') === 'true';
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -15,7 +17,13 @@ export default function Signin() {
             Sign in to your account
           </h2>
         </div>
-
+        <div>
+          {isFromRegister && (
+            <div className="mt-4 p-4 bg-green-500 text-white text-center rounded-md">
+              You have successfully registered. Please sig in.
+            </div>
+          )}
+        </div>
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <div className="space-y-6">
             <div>
